@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <h2>Profile</h2><br>
+    <hr>
+
+    <br>Username: {{patient_email}}
+    <br>Medicare Number: {{current_user.get_patient_medicareNo}}<br><br>
+    
+    {% if user.is_provider() == True %}
+        {% if user.has_patient(patient_email) == True %}
+            <a href = "{{url_for('current_patient_appointments', username=patient_email)}}">patient history</a><br>
+        {% endif %}
+    {% endif %}
+
+    <a href = "/home_page">Back to Home</a>
+</body>
+
+</html>

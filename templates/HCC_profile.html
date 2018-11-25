@@ -1,0 +1,56 @@
+<h1> {{HCC.get_HC_name()}} </h1>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+<script type="text/javascript">
+</script>
+
+<img src="https://i2.wp.com/www.brookings.edu/wp-content/uploads/2017/05/hospital002.jpg?w=745&crop=0%2C38px%2C100%2C421px&ssl=1" width="100px" height="100px"/>
+
+<br>
+<br>
+<table> 
+    <tr> 
+    <th> Location </th> 
+    <td> {{HCC.get_suburb_name()}}</td>
+    </tr>
+    <tr> 
+    <th> Phone Number  </th> 
+    <td> {{HCC.get_phone()}} </td> 
+    </tr> 
+    
+    
+</table> 
+
+<h3> Make a booking with one of the practitioners here at {{HCC.get_HC_name()}}</h3>
+    <p align='left'>
+    <table width='50%'>
+
+{%for HCP in HCC.get_HCPs() %}
+
+        <tr> 
+        <th> Name </th> 
+        <td> {{HCP.get_HCP_email}} </td> 
+        <th> Service </th> 
+        <td> {{HCP.get_profession}} </td>
+        {% if HCP.get_HCP_email == current_user._email %}
+            <td><form action = "{{url_for('my_profile')}}"><input type = submit value ="This is me!" style = "width:100%"></form></td>
+        {% else %}
+        <td><form action = "{{url_for('book', HCPusername=HCP._email, location = HCC._name)}}">
+<input type=submit value="Book with me!" style="width:100%"></form></td>
+        {% endif %}
+        </tr>
+        <tr class="break"><td colspan="3"></td></tr>
+
+    
+{% endfor %}
+    
+</table> 
+<h3> my rating is: {{HCC.get_avg_rating()}} </h3>
+<form method="POST">
+	<select name="rating">
+	    {% for rating in ratings %}
+	        <option value = "{{ rating }}">{{ rating }}</option>
+	    {% endfor %}
+	</select>
+	<button name="action" value = "rate" type='submit'>rate me</button><br/>
+</form>
+    

@@ -1,0 +1,46 @@
+{% block body %}
+
+<h1>Search</h1>
+<form method="POST">
+	<label> select a service </label><br/>
+	<select name="service_search">
+	    {% for service in services %}
+	    <option value = "{{ service }}">{{ service }}</option>
+	    {% endfor %}
+	</select>
+	<button name="action" value = "service_search" type='submit'>search</button><br/>
+
+	<label> search by suburb</label><br/>
+	<input name = "suburb_search" placeholder="Enter Suburb">
+	<button type='submit' name = "action" value = "suburb_search">search</button><br/>
+
+	<label> search providers </label><br/>
+	<input name = "provider_search" placeholder="Enter provider name">
+	<button type='submit' name = "action" value = "provider_search"> search</button><br/>
+
+	<label> search Health Care Centres </label><br/>
+	<input name = "centre_search" placeholder="Enter Centre name">
+	<button type='submit' name = "action" value = "centre_search"> search</button><br/>
+
+</form>
+
+<!--
+<form method="POST">
+    <label> search by service </label><br/>
+	<select name="search">
+	    {% for service in services %}
+	    <option value = "{{ service }}">{{ service }}</option>
+	    {% endfor %}
+	</select>
+    <input type = "radio" name="search" value="suburb">search by suburb <br>
+    <input type = "radio" name="search" value="HCP">search by provider name <br>
+    <input type = "radio" name="search" value="centre">search by centre name<br>
+    <input name = "search" placeholder="">
+    <button name="action" value = "enter" type='submit'>search</button><br/>
+</form>
+-->
+
+<a href = "/home_page">Back to home</a>
+
+
+{% endblock %}

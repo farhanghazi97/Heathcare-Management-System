@@ -1,0 +1,9 @@
+provider_email,health_centre_name,password,provider_type,name,provider_num,rating
+toby@gmail.com,"Sydney Children Hospital , UTS Health Service",cs1531,Pathologist,Toby,123,2
+samuel@gmail.com,Prince of Wales Hospital,cs1531,GP,Samuel,1234,3
+sid@gmail.com,Royal Prince Alfred Hospital,cs1531,Pathologist,Sid,1234,4
+michael@gmail.com,USYD Health Service,cs1531,Physiotherapist,Michael,1234,5
+anna@gmail.com,"UTS Health Service , Sydney Children Hospital , Prince of Wales Hospital",cs1531,GP,Anna,1234,6
+thomas@gmail.com,Prince of Wales Hospital,cs1531,Pharmacist,Thomas,1234,7
+ian@gmail.com,Sydney Children Hospital,cs1531,Physiotherapist,Ian,2134,8
+gary@gmail.com,"Sydney Children Hospital , USYD Health Service",cs1531,GP,Gary,1234,9

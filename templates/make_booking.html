@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+</head>
+
+<body>
+    <form method = "post">
+        Please select the provider with whom<br>
+        you wish to place an appointment with:<br>
+        <select name = "doctor">
+            {% for doctor in doctors %}
+                <option value = "{{doctor.get_name}} ({{doctor.get_profession}})">{{doctor.get_name , doctor.get_profession}}</option>
+            {% endfor %}
+        </select><br><br>
+        Please select a preferred date:<br>
+        <input name = "date" type = "date" value = "{{date}}"><br><br>
+        Please select a preferred time:<br>
+        <input name = "time" type = "time" value = "{{time}}"><br><br>
+        Please select your preferred health care centre:<br>
+        <select name = "HC_centre">
+            {% for centre in HC_centres %}
+                <option value = "{{centre.get_HC_name()}} , {{centre.get_suburb_name()}}">{{centre.get_HC_name() , centre.get_suburb_name()}}</option>
+            {% endfor %}
+        </select><br><br>
+        <button type = "submit">SUBMIT</button>
+    </form>
+    <br><a href = "/home_page">Cancel</a><br>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<form class = "form-inline" method = "POST"> 
+    <div class = "form-group">
+        <div class = "input-group">
+        {% if msg is defined %}
+        <h3> {{msg}} </h3>
+        <br>
+        {%endif%}
+            <span class = "input-group-addon"> I'm looking for an appointment on </span>
+                <input type = "date" name = "form">
+                </select>
+            </div>
+        </div>
+
+
+<br>
+<br>
+
+        <button type = "submit" class = "btn btn -default"> Go </button>
+        </div>
+
+</form> 
+
+
+<br>
+{% if showtime %} 
+    <table style = "width: 100%">
+    <tr> 
+        <th> {{date}} </th>
+    </tr>
+    <form>
+    <tr>
+    {%for interval in time_intervals%}
+    
+        <td> <a href = "{{url_for('add_a_note',HCPusername=HCPusername, location = location, time = interval, date = date)}}"> {{interval}} </a> </td>
+    </tr>
+    {% endfor%}
+    
+
+         
+
+    </table>
+{% endif %}
+
+
+
+
+<!-- to do --->
+<!-- if a patient has been redirected from a doctor's profile page, the doctor and the service will automatically selected, the health-care centre will be based on the doctor--->
+<!-- if a patient has been redirected from a health-care centre's profile page (they have to specify a service), the health-care centre's location page will be automatically selected as well as the service-->
+<!-- fix alignment--->
+<!-- if a patient has pressed submit, disable the buttons but display the doctor's name, service etc--->
+

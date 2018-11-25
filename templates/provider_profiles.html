@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <h2>Dr. {{doctor_name}}</h2><br>
+</head>
+
+<body>
+    <hr>
+    <h2>Profile</h2><br>
+    {% for x in list_of_doctors %}
+        {% if (x.get_HCP_name() == doctor_name) %}
+            <br>E-mail: {{x.get_HCP_email()}}<br>
+            <br>Profession: {{x.get_service_type()}}<br>
+            <br>Affiliated Centres: {{x.get_associated_centres()}}<br>
+        {% endif %}
+    {% endfor %}
+</body>
+
+</html>

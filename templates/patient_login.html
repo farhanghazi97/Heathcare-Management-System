@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h2 align = "center">Welcome to HCMS!</h2><br>
+
+<h3 align = "center">Login as patient</h3>
+<form method="POST" align = "center">
+    Username: <input type="text"        name="username">
+    Password: <input type="password"    name="password">
+    <button>Login</button>
+</form><br>
+
+<center>
+    <a align = "centre" href = "/hcp_login">Login as HCP</a>
+</center>
+
+<br/><br/>
+
+{% endblock %}

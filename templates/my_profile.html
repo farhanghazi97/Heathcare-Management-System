@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <h2>Profile</h2><br>
+    <hr>
+    <br>Username: {{current_user.get_username()}}
+    {% if current_user.is_provider() == False %}
+        <br>Medicare Number: {{current_user.get_patient_medicareNo}}<br><br>
+    {% endif %}
+    {% if current_user.is_provider() == True %}
+        <br> Provider Number: <br>
+    {% endif %}
+    
+    {% if current_user.is_provider() == True %}
+        <a href = "{{url_for('current_provider_appointments', username=current_user.get_username())}}">All Appointments </a><br>
+       
+    {% endif %}
+    
+    {% if current_user.is_provider() == False %}
+        <a href = "{{url_for('current_patient_appointments', username=current_user.get_username())}}">All Appointments </a><br>
+    {% endif %}
+
+    <a href = "/update_profile">Click here to update details</a><br>
+    <a href = "/home_page">Back to Home</a>
+</body>
+
+</html>

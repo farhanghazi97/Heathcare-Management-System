@@ -1,0 +1,55 @@
+{% block body %}
+
+<h1>Search Results</h1>
+    
+    {% if search_type == "suburb_search" %}
+        
+        {% for centre in search_results %} 
+            <ul> 
+                <a href = "{{url_for('centerProfile', HCCname=centre._name)}}">{{centre._name}}</a> 
+                <li> Suburb: {{centre._suburb}}</li>
+                <li> Rating: {{centre.get_avg_rating()}}</li>
+            </ul>
+        {% endfor %}
+        
+    {% endif %}
+
+    {% if search_type == "service_search" %}
+       <ul>
+        {% for provider in search_results %} 
+            <ul> 
+                <a href = "{{url_for('HCPProfile', HCPusername=provider._email)}}">{{provider._email}}</a> 
+                <li> Rating: {{provider.get_avg_rating()}}</li>
+            </ul>
+            
+        {% endfor %}
+        </ul> 
+        
+    {% endif %}
+    
+    {% if search_type == "provider_search" %}
+        <ul>
+        {% for provider in search_results %} 
+            <ul> 
+                <a href = "{{url_for('HCPProfile', HCPusername=provider._email)}}">{{provider._email}}</a> 
+                <li> Rating: {{provider.get_avg_rating()}}</li>
+            </ul>
+            
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if search_type == "centre_search" %}
+        <ul>
+        {% for centre in search_results %}
+            <ul> 
+                <a href = "{{url_for('centerProfile', HCCname=centre._name)}}">{{centre._name}}</a> 
+                <li> Suburb: {{centre._suburb}}</li>
+                <li> Rating: {{centre.get_avg_rating()}}</li>
+            </ul>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+
+{% endblock %}

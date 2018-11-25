@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <h2 align = "center"> Current bookings</h2>
+</head>
+
+<body>
+    <!--<div>
+        {% for booking in list_of_appointments %}
+            <hr>
+            <br>Provider: <a href = "/provider_profile/{{booking.get_doctor()}}">Dr. {{booking.get_doctor()}}</a><br>
+                Date: {{booking.get_time()}}<br>
+                Time: {{booking.get_date()}}<br>
+                Location: <a href = "/centre_profile/{{booking.get_location()}}">{{booking.get_location()}}</a><br><br>
+        {% endfor %}
+        <br>
+    </div>-->
+{% if future_bookings|length == 0 %}
+<h2> You have no upcoming bookings </h2> 
+{%else%}
+<h2>Upcoming Appointments</h2>
+    {% for booking in future_bookings %}
+        <hr>
+        <br>patient: <a href = "{{url_for('patientProfile', username=booking.getPatient())}}">{{booking.getPatient()}}</a> 
+        <br>Healthcare Centre: <a href = "{{url_for('centerProfile', HCCname=booking.getHCC())}}">{{booking.getHCC()}}</a>
+        <br>Time: {{booking.getTime()}}
+        <br>Date: {{booking.getDate()}}
+        <br>Patient's reason for visit: {{booking.getpNote()}}<br>
+    {% endfor %}
+{%endif%}
+
+{% if past_bookings|length == 0%}
+<h2> You have no past bookings </h2>
+{%else%}    
+<h2>Past Appointments</h2>
+    {% for booking in past_bookings %}
+        <hr>
+        <br>patient: <a href = "{{url_for('patientProfile', username=booking.getPatient())}}">{{booking.getPatient()}}</a> 
+        <br>Healthcare Centre: <a href = "{{url_for('centerProfile', HCCname=booking.getHCC())}}">{{booking.getHCC()}}</a>
+        <br>Time: {{booking.getTime()}}
+        <br>Date: {{booking.getDate()}}
+        <br>Patient's reason for visit: {{booking.getpNote()}}
+        <br>Doctor's notes: {{booking._dNote}}<br>
+        <form action = "{{url_for('providersNotes', bookingId=booking.getBookingID())}}">
+            <input type=submit value="add note">
+        </form><br><br>
+    {% endfor %}
+    <a href = "/home_page">Back to home<br><br>
+</body>
+{%endif%}
+</html>
